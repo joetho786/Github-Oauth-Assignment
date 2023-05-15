@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GitHub</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet"  type="text/css" href="css/home.css">
+</head>
+<body>
+    <div class="container create-box hidden">
+        <div class="row">
+            <div class="col-md-6 text-left">
+                <h2>Create Repo</h2>
+            </div>
+            <div class="col-md-6 text-right">
+                <button type="button" class="btn btn-primary" id="close">Close</button>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-3 text-left">
+                <label for="repo_name">Repo Name</label>
+            </div>
+            <div class="col-md-9">
+                <input type="text" class="form-control" id="repo_name" placeholder="Repo Name">
+            </div>
+        </div>
+        <div class="row justify-content-center p-2 m-3">
+            <div class="col-md-3 text-left">
+                <label for="repo_description">Repo Description</label>
+            </div>
+            <div class="col-md-9">
+                <input type="text" class="form-control" id="repo_description" placeholder="Repo Description">
+            </div>
+        </div>
+        <div class="row justify-content-center p-2 m-3">
+            <div class="col-md-3 text-left">
+                <label for="repo_private">Repo Visibility</label>
+            </div>
+            <div class="col-md-9">
+                <select class="form-control" id="repo_private">
+                    <option value="true">Private</option>
+                    <option value="false">Public</option>
+                </select>
+            </div>
+        </div>
+        <div class="row justify-content-center p-2 m-3">
+            <div class="col-md-6 text-left">
+                <button type="button" class="btn btn-primary" id="create">Create Repo</button>
+            </div>
+        </div>
+    </div>
+    <div class="container normal">
+        <div class="row">
+            <div class="col-md-12 text-left">
+                <h2>{{username}} Repos</h2>
+                <button type="button" class="btn btn-primary" id="create_repo">Create New Repo</button>
+            </div>
+
+            <div class="col-md-12 text-left">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Repo Name</th>
+                            <th>Repo Description</th>
+                            <th>Repo URL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each repos}}
+                        <tr>
+                            <td>{{name}}</td>
+                            <td>{{description}}</td>
+                            <td><a href={{html_url}} target="_blank">{{html_url}}</a></td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+        </div>
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="js/home.js"></script>
+</html>
