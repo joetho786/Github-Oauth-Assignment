@@ -4,7 +4,7 @@ This is a plugin for Nest JS to create a repo in github and login with github. T
 
 The user token and data are also stored in sqlite database for verification and future use.
 
-We use Handlebars to create html frontend for the pages.
+Handlebars JS is used to create html frontend for the pages.
 
 ## Installation
 ```bash
