@@ -58,3 +58,31 @@ export const createRepo = async (access_token: string, payload) => {
   );
   return response.status === 201;
 };
+
+export const addFilestoRepo = async (access_token: string,repo_name, username, content) => {
+    const options = {
+        headers: {
+            Authorization: `Bearer ${access_token}`,
+            Accept: 'application/vnd.github+json'
+        },
+    };
+
+
+    const body = {
+        "message": "Initial Commit",
+        "commiter": {
+            "name": "Test-app",
+            "email": "test@gmail.com"
+        },
+        "content": content
+    }
+
+    const response = await axios.put(
+        `https://api.github.com/repos/${username}/${repo_name}/contents/README.md`,
+        body,
+        options,
+    );
+    // console.log(response);
+    return response.status >= 200 && response.status < 300;
+
+};

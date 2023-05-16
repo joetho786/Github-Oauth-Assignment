@@ -62,6 +62,12 @@ export class AuthService {
     return false;
   }
 
+  async getUserDetails(sessionid: string) {
+    const user = await this.userRepository.findOne({
+        where: { access_token: sessionid },
+        });
+    return user;
+    }
   async checkIsAuthenticated(sessionid: string) {
     // console.log("Session id",sessionid);
     if (sessionid != null && sessionid != undefined) {
